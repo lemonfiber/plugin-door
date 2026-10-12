@@ -31,3 +31,15 @@ replaces    = "door"
 
 [[service.publish]]
 port = 8920
+
+[[proof]]
+id      = "door.refuses-an-id-in-braces"
+title   = "A stream asked for with an id in braces is refused at the door"
+fixture = "recordings/door/stream-id-in-braces.json"
+why     = """
+Jellyfin reads an id in braces as the same item, and the door cannot ask
+Jellyfin whether a session may see an id written that way, so the door refuses
+it itself without asking anything behind it. The refusal is the pass.
+"""
+request = { method = "GET", path = "/Videos/%7Bdeadbeef-0000-0000-0000-000000000000%7D/stream?static=true" }
+expect  = { status = 403 }
