@@ -23,10 +23,10 @@
 # serves it without asking who is there. Before one goes on, the door asks the
 # pass service, `GET /pass` at 10.80.96.34:8090 on the network it shares with
 # the pass service alone, naming the request as it came in `X-Forwarded-Uri`.
-# The pass travels in the request's `lfpass` parameter, and the pass service
-# confirms it for exactly the live stream the path names. A 2xx passes the
-# request on without its `lfpass`. Any other answer, or none, is refused with
-# 403. The door holds no key.
+# The pass travels in the request's `lfpass` parameter, once and in that
+# spelling, and the pass service confirms it for exactly the live stream the
+# path names. A 2xx passes the request on without its `lfpass`. Any other
+# answer, or none, is refused with 403. The door holds no key.
 #
 # Every other path goes to Jellyfin unchanged, and Jellyfin holds the member to
 # their policy there itself.
@@ -158,6 +158,16 @@
 		expression `{http.request.uri.query}.matches("(^|&)[A-Za-z0-9_.-]*[^A-Za-z0-9_.=&-]") || {http.request.uri.query}.matches("(?i)(^|&)mediasourceid(=|&|$)") && !({http.request.uri.query}.matches("^(.*&)?MediaSourceId=[0-9a-f]{32}(&.*)?$") && !{http.request.uri.query}.matches("(?i)(^|&)mediasourceid(=|&|$).*&mediasourceid(=|&|$)"))`
 	}
 
+	# On a live stream's file, the pass under another spelling than `lfpass`, given
+	# twice, or given empty. The pass service reads that one spelling once, and the door
+	# takes only it off before Jellyfin, so the pass travels in one place in one spelling.
+	# A parameter name holding anything but ASCII letters, digits, `_`, `-` and `.` is
+	# already refused above.
+	@pass_unreadable {
+		path_regexp (?i)^(?:/emby|/mediabrowser)?/LiveTv/LiveStreamFiles(?:/|$)
+		expression `{http.request.uri.query}.matches("(?i)(^|&)lfpass(=|&|$)") && !({http.request.uri.query}.matches("^(.*&)?lfpass=[^&]+(&.*)?$") && !{http.request.uri.query}.matches("(?i)(^|&)lfpass(=|&|$).*&lfpass(=|&|$)"))`
+	}
+
 	@trickplay_source {
 		path_regexp trickplay (?i)^(?:/emby|/mediabrowser)?/Videos/([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})/Trickplay(?:/|$)
 		expression `{http.request.uri.query}.matches("(?i)(^|&)mediasourceid(=|&|$)")`
@@ -224,6 +234,10 @@
 	}
 
 	handle @trickplay_source_unaskable {
+		respond 403
+	}
+
+	handle @pass_unreadable {
 		respond 403
 	}
 
