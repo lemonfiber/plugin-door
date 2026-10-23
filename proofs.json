@@ -9,6 +9,12 @@
       "detail": ""
     },
     {
+      "id": "door.refuses-a-live-stream-without-a-pass",
+      "kind": "proof",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
       "id": "door.version",
       "kind": "proof",
       "outcome": "passed",
