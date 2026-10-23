@@ -5,26 +5,26 @@
     {
       "id": "door.refuses-an-id-in-braces",
       "kind": "proof",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "unproven",
+      "detail": "recordings/door/stream-id-in-braces.json: was recorded from ghcr.io/lemonfiber/door@sha256:bb78c5b83612d5ad038be38da1ceb05c541c2502cdd95720ebbb1db3e1be0a55, and this manifest installs ghcr.io/lemonfiber/door@sha256:2b3802f08b1aecbf61193779583e5241ce9576855cc9585c50143f2ecc939789; a recording of another build passes while describing software nobody is installing"
     },
     {
       "id": "door.refuses-a-live-stream-without-a-pass",
       "kind": "proof",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "unproven",
+      "detail": "recordings/door/live-stream-without-a-pass.json: was recorded from ghcr.io/lemonfiber/door@sha256:bb78c5b83612d5ad038be38da1ceb05c541c2502cdd95720ebbb1db3e1be0a55, and this manifest installs ghcr.io/lemonfiber/door@sha256:2b3802f08b1aecbf61193779583e5241ce9576855cc9585c50143f2ecc939789; a recording of another build passes while describing software nobody is installing"
     },
     {
       "id": "door.version",
       "kind": "proof",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "failed",
+      "detail": "its output begins \"v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fx\", and it declares \"v2.11.6 \""
     },
     {
       "id": "stream.guard/refuses",
       "kind": "probe",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "unproven",
+      "detail": "recordings/door/stream-guard-refuses.json: was recorded from ghcr.io/lemonfiber/door@sha256:bb78c5b83612d5ad038be38da1ceb05c541c2502cdd95720ebbb1db3e1be0a55, and this manifest installs ghcr.io/lemonfiber/door@sha256:2b3802f08b1aecbf61193779583e5241ce9576855cc9585c50143f2ecc939789; a recording of another build passes while describing software nobody is installing"
     }
   ]
 }
