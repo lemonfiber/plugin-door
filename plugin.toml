@@ -14,8 +14,8 @@ forms       = ["library", "full"]
 id          = "door"
 name        = "Door"
 image       = "ghcr.io/lemonfiber/door"
-digest      = "sha256:bb78c5b83612d5ad038be38da1ceb05c541c2502cdd95720ebbb1db3e1be0a55"
-tag         = "main-0c3ae0d8a425"
+digest      = "sha256:2b3802f08b1aecbf61193779583e5241ce9576855cc9585c50143f2ecc939789"
+tag         = "main-987b73254260"
 port        = 8096
 bind        = "lan"
 health      = { kind = "tcp", timeout_s = 30 }
@@ -63,7 +63,7 @@ expect  = { status = 403 }
 id      = "door.version"
 title   = "The image's own Caddy says which release it is"
 run     = { args = ["caddy", "version"] }
-expect  = { exit = 0, stdout_starts_with = "v2.11.6 " }
+expect  = { exit = 0, stdout_starts_with = "v2.11.7 " }
 fixture = "recordings/door/version.json"
 why     = """
 Every other proof here is a status the configuration chose, which a port proxy
