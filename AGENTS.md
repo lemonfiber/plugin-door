@@ -17,17 +17,17 @@ says how the catalogue pins it and how lemonfiber carries it.
 
 - **The plugin id is the service's id** (`ARCH-R266`). The container, the
   configuration directory, the settings and the journal keep their names.
-- **One service, speaking no contract**, while the bundle assembles it. It
-  declares `replaces` naming its own id, which is how it takes the id, the port
-  and the hostname the bundle reserves for it (`ARCH-R222`).
-- **Its claims' recordings sit under `recordings/door/`**, and its starting
-  files, where it has any, under `config/door/` (`ARCH-R271`).
+- **One service, speaking `stream.guard@1` as its own upstream** (`ARCH-R344`,
+  ADR-0056), on its contract port 8081 apart from the household's 8096 and 8920
+  (`ARCH-R343`). It declares `replaces` naming its own id, which is how it takes the
+  id, the port and the hostname the bundle reserves for it (`ARCH-R222`).
+- **Its proofs' recordings sit under `recordings/door/`**, its conformance
+  recordings under `conformance/stream.guard@1/`, and it has no starting files: the
+  core writes its envelope's key and its certificate into `/config` (`ARCH-R271`).
 - **Every service declares `reaches` and `asks_for`** (`ARCH-R270`).
 - **No Python here.** The reader is spec's `first-party-plugin` workflow's.
-- **The image is built in `lemonfiber-door`** (`OPS-R93`). Its `Dockerfile` builds
-  it from its upstream's, and it runs under the posture this manifest's main
-  declares (`ARCH-R250`), with the starting files under `config/door/` and
-  `posture/prepare` giving it what lemonfiber writes at install. Its pin moves here
-  on the release app's rolling pull request from there, so a change to the posture,
-  the starting files or `posture/prepare` is proved there on that repository's next
-  run.
+- **The image is built in `lemonfiber-door`** (`OPS-R93`) and runs under the posture
+  this manifest's main declares (`ARCH-R250`); `posture/prepare` gives the image's
+  check there the certificate lemonfiber writes at install. Its pin moves here on the
+  release app's rolling pull request from there, so a change to the posture or
+  `posture/prepare` is proved there on that repository's next run.

@@ -1,8 +1,8 @@
 # Door for lemonfiber
 
-**Lets the household reach Jellyfin, and lets an item's stream or picture out only to someone allowed to see it.**
+**Lets the household reach the media server, and lets an item's stream or picture out only to someone allowed to see it.**
 Door is one of the parts the stack lemonfiber ships is built from.
-Without it: Jellyfin answers on this machine only, and nothing else in the house can play from it.
+Without it: The media server answers on this machine only, and nothing else in the house can play from it.
 
 ## How lemonfiber carries it
 
@@ -11,18 +11,21 @@ The default bundle in
 repository by a revision and the digests of its manifest and its tree, and
 lemonfiber compiles that tree in.
 lemonfiber assembles Door into the stack it ships as a stack service.
-Its image is built in
-[lemonfiber-door](https://github.com/lemonfiber/lemonfiber-door) from `caddy`,
-with what the posture it runs under does not hold taken out. Every commit on
-that repository's main publishes it and moves the pin here on a rolling pull
-request; the release train tags this repository, and the bundle pins the tag.
+Its image is the Rust service
+[lemonfiber-door](https://github.com/lemonfiber/lemonfiber-door) builds, which
+speaks lemonfiber's `stream.guard` contract itself and enforces the media
+server's declaration lemonfiber applies over it. A commit on that repository's
+main that changes the image publishes it and moves the pin here on a rolling
+pull request; this repository builds no image, so the bundle pins its revision.
 
 ## What is here
 
 | Path | What it is |
 | --- | --- |
 | `plugin.toml` | The part's manifest |
-| `config/door/` | The files Door starts with, written into its configuration directory |
+| `recordings/door/` | The responses its proofs are held to |
+| `conformance/stream.guard@1/` | Its answer to each case of the contract it speaks |
+| `posture/prepare` | The certificate lemonfiber writes, made for the image's check in lemonfiber-door |
 | `targets.toml` | The lemonfiber its checks run against |
 | `proofs.json` | What those checks said, committed |
 
@@ -40,6 +43,5 @@ workflow in lemonfiber-door, on each of its pull requests and from its main.
 
 ## Licence
 
-The data in this repository is under the licence in `LICENSE`.
-`caddy`, which its image is built from, is under Apache-2.0, and the
-image lemonfiber-door builds carries it under the same licence.
+The data in this repository is under the licence in `LICENSE`, and so is the
+image lemonfiber-door builds.
