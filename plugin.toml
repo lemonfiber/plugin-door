@@ -22,8 +22,10 @@ health      = { kind = "tcp", timeout_s = 30 }
 criticality = "important"
 memory_mib  = 50
 reaches     = ""
-asks_for    = "Nothing beyond this machine. It asks the media server, beside it, whether the session a request presents may see the item it asks for, asks lemonfiber's pass service, beside it, whether the pass a live stream's request carries is good for that live stream, and fetches no certificate: it serves the one lemonfiber writes into its configuration."
+asks_for    = "Nothing beyond this machine. It asks the media server, beside it, whether the session a request presents may see the item it asks for, asks lemonfiber's pass service, beside it, whether the pass a live stream's request carries is good for that live stream, and fetches no certificate: it serves the one lemonfiber writes into its configuration, which it only reads."
 config_path = "/config"
+config_ro   = true
+posture     = "confined"
 user_mode   = "uid"
 replaces    = "door"
 provides    = ["stream.guard"]
@@ -33,6 +35,10 @@ speaks      = ["stream.guard@1"]
 
 [[service.publish]]
 port = 8920
+
+[[service.mount]]
+from = "state"
+to   = "/state"
 
 [[proof]]
 id      = "door.refuses-an-id-in-braces"

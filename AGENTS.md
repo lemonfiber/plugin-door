@@ -23,7 +23,10 @@ says how the catalogue pins it and how lemonfiber carries it.
   id, the port and the hostname the bundle reserves for it (`ARCH-R222`).
 - **Its proofs' recordings sit under `recordings/door/`**, its conformance
   recordings under `conformance/stream.guard@1/`, and it has no starting files: the
-  core writes its envelope's key and its certificate into `/config` (`ARCH-R271`).
+  core writes its contract key and its certificate into `/config` (`ARCH-R271`).
+- **It runs `confined`, with `/config` read-only.** It holds no capability, its root
+  is read-only, and the one directory it writes is its `state` mount at `/state`,
+  holding the envelope the core applies and nothing else (ADR-0056).
 - **Every service declares `reaches` and `asks_for`** (`ARCH-R270`).
 - **No Python here.** The reader is spec's `first-party-plugin` workflow's.
 - **The image is built in `lemonfiber-door`** (`OPS-R93`) and runs under the posture
