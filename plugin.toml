@@ -14,8 +14,8 @@ forms       = ["library", "full"]
 id          = "door"
 name        = "Door"
 image       = "ghcr.io/lemonfiber/door"
-digest      = "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-tag         = "main-000000000000"
+digest      = "sha256:7ed72128367135075fcdacb402017c51db0cc298552cbffc2cf498e5b6f7a951"
+tag         = "main-c24badf8af6d"
 port        = 8096
 bind        = "lan"
 health      = { kind = "tcp", timeout_s = 30 }

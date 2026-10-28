@@ -34,7 +34,8 @@ pull request; this repository builds no image, so the bundle pins its revision.
 The plugin verdict is one job of spec's
 [`first-party-plugin`](https://github.com/lemonfiber/spec/blob/main/.github/workflows/first-party-plugin.yml)
 workflow: the manifest as the lemonfiber `targets.toml` names reads it, every
-claim against its recording, and every pinned digest. This repository holds no
+proof and every case of `stream.guard@1` against its recording, and every pinned
+digest. This repository holds no
 Python of its own. `just ci` runs the gates that need nothing but this tree.
 The image is built and run under the posture this manifest's main declares by
 spec's
