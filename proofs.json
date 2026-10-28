@@ -5,26 +5,26 @@
     {
       "id": "door.refuses-an-id-in-braces",
       "kind": "proof",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "failed",
+      "detail": "answered 503 where it declares 403"
     },
     {
       "id": "door.refuses-a-live-stream-without-a-pass",
       "kind": "proof",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "failed",
+      "detail": "answered 503 where it declares 403"
     },
     {
       "id": "door.version",
       "kind": "proof",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "failed",
+      "detail": "it exited 2 where it declares 0; its output begins \"\", and it declares \"v2.11.7 \""
     },
     {
       "id": "stream.guard/refuses",
       "kind": "probe",
-      "outcome": "passed",
-      "detail": ""
+      "outcome": "failed",
+      "detail": "answered 503 where it declares 403"
     }
   ]
 }
