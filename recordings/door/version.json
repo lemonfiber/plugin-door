@@ -1,8 +1,8 @@
 {
-  "recorded_from": "ghcr.io/lemonfiber/door@sha256:0fca77854aeb3b217c06416ac9e60d515e340a706dee7069249796e06ef3a099",
-  "note": "The pinned image's own Caddy, run as the operator's user with no network, names its release.",
+  "recorded_from": "ghcr.io/lemonfiber/door@sha256:7ed72128367135075fcdacb402017c51db0cc298552cbffc2cf498e5b6f7a951",
+  "note": "Run as the image's own program, the door names the release it was built as: lemonfiber-door at the plugin's version.",
   "run": {
-    "args": ["caddy", "version"]
+    "args": ["version"]
   },
-  "result": {"exit": 0, "stdout_starts_with": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=\n"}
+  "result": {"exit": 0, "stdout_starts_with": "lemonfiber-door 0.18.0\n"}
 }
