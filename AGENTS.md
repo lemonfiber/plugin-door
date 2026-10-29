@@ -30,7 +30,7 @@ says how the catalogue pins it and how lemonfiber carries it.
 - **Every service declares `reaches` and `asks_for`** (`ARCH-R270`).
 - **No Python here.** The reader is spec's `first-party-plugin` workflow's.
 - **The image is built in `lemonfiber-door`** (`OPS-R93`) and runs under the posture
-  this manifest's main declares (`ARCH-R250`); `posture/prepare` gives the image's
-  check there the certificate lemonfiber writes at install. Its pin moves here on the
-  release app's rolling pull request from there, so a change to the posture or
-  `posture/prepare` is proved there on that repository's next run.
+  this manifest's main declares (`ARCH-R250`). That check writes the certificate a
+  `stream.guard` provider is handed, as lemonfiber writes it at install (`ARCH-R356`).
+  Its pin moves here on the release app's rolling pull request from there, so a change
+  to the posture is proved there on that repository's next run.

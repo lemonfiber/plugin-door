@@ -25,7 +25,6 @@ pull request; this repository builds no image, so the bundle pins its revision.
 | `plugin.toml` | The part's manifest |
 | `recordings/door/` | The responses its proofs are held to |
 | `conformance/stream.guard@1/` | Its answer to each case of the contract it speaks |
-| `posture/prepare` | The certificate lemonfiber writes, made for the image's check in lemonfiber-door |
 | `targets.toml` | The lemonfiber its checks run against |
 | `proofs.json` | What those checks said, committed |
 
