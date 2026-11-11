@@ -1,5 +1,5 @@
 {
-  "recorded_from": "ghcr.io/lemonfiber/door@sha256:02ed28dfd7a8a994dfdb26ebe7bfb647fb239391786fdf1a1e0daa6e412ab89c",
+  "recorded_from": "ghcr.io/lemonfiber/door@sha256:978b18088eee936dfc8d4d5856926fa9e874c29cbc344d5897f991de3beb934d",
   "note": "The certificate the door serves, the throwaway one the recorder wrote into its configuration and made for this run alone, so its fingerprint is redacted.",
   "request": {"method": "POST", "path": "/lemonfiber/stream.guard/v1/certificate", "accept": "application/json"},
   "response": {
