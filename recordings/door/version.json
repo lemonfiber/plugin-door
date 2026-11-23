@@ -1,5 +1,5 @@
 {
-  "recorded_from": "ghcr.io/lemonfiber/door@sha256:24407bae3cfd29b6fbc112e358b571cb92dd5ea5383dd4e63d6f9595c78ca515",
+  "recorded_from": "ghcr.io/lemonfiber/door@sha256:7c4918648101d9750e9ee68b94cb35a85fc4fb73b44022f32fe3fe3533199a66",
   "note": "Run as the image's own program, the door names the release it was built as: lemonfiber-door at the plugin's version.",
   "run": {
     "args": ["version"]
