@@ -1,5 +1,5 @@
 {
-  "recorded_from": "ghcr.io/lemonfiber/door@sha256:66a10dbcaa36eb4a567c96c6233fcfccc15cc8bd8291de0ad5e7e48a4d4ef807",
+  "recorded_from": "ghcr.io/lemonfiber/door@sha256:609c207f2643cb9dea23230df5a73d787a841fdac3d2808e833bfcb84a2b93db",
   "note": "Asked without the plugin's key: the kit refuses it before the door's own code is reached.",
   "request": {"method": "POST", "path": "/lemonfiber/stream.guard/v1/guard", "accept": "application/json"},
   "response": {"status": 401}

@@ -1,5 +1,5 @@
 {
-  "recorded_from": "ghcr.io/lemonfiber/door@sha256:66a10dbcaa36eb4a567c96c6233fcfccc15cc8bd8291de0ad5e7e48a4d4ef807",
+  "recorded_from": "ghcr.io/lemonfiber/door@sha256:609c207f2643cb9dea23230df5a73d787a841fdac3d2808e833bfcb84a2b93db",
   "note": "The envelope the door is guarding with, read back after it was applied: the case's declaration, upstream, pass service and proxy, as applied.",
   "request": {"method": "POST", "path": "/lemonfiber/stream.guard/v1/guarding", "accept": "application/json"},
   "response": {
